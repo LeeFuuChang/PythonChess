@@ -128,9 +128,11 @@ class Game:
 
             if self.State["Moving"]:
                 moved = self.getPieceMove()
-                if moved != 0: 
+                if moved == 1: 
                     self.board.switchSide()
                     print(self.board.Side)
+                    self._resetTempStorage()
+                elif moved == -1:
                     self._resetTempStorage()
             elif self.State["Choosing"]:
                 self.getChoosePiece(self.board.Side)
